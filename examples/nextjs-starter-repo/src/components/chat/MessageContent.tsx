@@ -1,15 +1,20 @@
-'use client';
+"use client";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Image as ImageIcon, FileText, Code, Link as LinkIcon } from 'lucide-react';
-import { MessageContent as MessageContentType } from '../../types/chat';
+import {
+  Image as ImageIcon,
+  FileText,
+  Code,
+  Link as LinkIcon,
+} from "lucide-react";
+import { MessageContent as MessageContentType } from "../../types/chat";
+import Image from "next/image";
 
 interface MessageContentProps {
   content: MessageContentType;
 }
 
 export default function MessageContent({ content }: MessageContentProps) {
-
   const convertMsg = (msg: string) => {
     let content = msg.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
     content = content.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>");
@@ -17,26 +22,26 @@ export default function MessageContent({ content }: MessageContentProps) {
     return content;
   };
 
-  if (typeof content === 'string') {
-    return <p dangerouslySetInnerHTML={{ __html: convertMsg(content) }} />
+  if (typeof content === "string") {
+    return <p dangerouslySetInnerHTML={{ __html: convertMsg(content) }} />;
   }
 
   switch (content.type) {
-    case 'image':
+    case "image":
       return (
         <div className="space-y-2">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <ImageIcon size={16} />
             <span>Image</span>
           </div>
-          <img 
-            src={content.url} 
-            alt={content.alt || 'Shared image'} 
+          <Image
+            src={content.url}
+            alt={content.alt || "Shared image"}
             className="rounded-lg max-w-md max-h-96 object-contain"
           />
         </div>
       );
-    case 'code':
+    case "code":
       return (
         <div className="space-y-2">
           <div className="flex items-center justify-between">
@@ -50,7 +55,7 @@ export default function MessageContent({ content }: MessageContentProps) {
           </pre>
         </div>
       );
-    case 'file':
+    case "file":
       return (
         <div className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg max-w-sm">
           <FileText className="shrink-0" />

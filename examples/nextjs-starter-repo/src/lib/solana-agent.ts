@@ -20,7 +20,7 @@ export class SolanaAgentService {
   ): Promise<ChatResponse> {
     if (token) {
       this.llm = new ChatOpenAI({
-        modelName: "gpt-40-mini",
+        modelName: "gpt-4o-mini",
         temperature: 0.7,
         apiKey: token,
       });

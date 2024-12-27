@@ -8,7 +8,6 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -90,12 +89,11 @@ export default function SettingsPanel({
               id="solRpcUrl"
               name="solRpcUrl"
               defaultValue={
-              settings.solRpcUrl || "https://api.devnet.solana.com"
-            }>
+                settings.solRpcUrl || "https://api.devnet.solana.com"
+              }
+            >
               <SelectTrigger className="w-[180px]">
-                <SelectValue
-
-                />
+                <SelectValue />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>

@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 import { SolanaAgentService } from "@/lib/solana-agent";
 
-const solanaAgent = new SolanaAgentService("id");
+export const runtime = 'edge';
 
 export async function POST(req: Request) {
   try {
     const { message } = await req.json();
+    const solanaAgent = new SolanaAgentService("id");
     const token = req.headers.get("OpenAI-Key") || undefined;
     const solPrivateKey = req.headers.get("Solana-Private-Key") || undefined;
     const solRpcUrl = req.headers.get("Solana-Rpc-Url") || undefined;

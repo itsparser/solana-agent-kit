@@ -3,6 +3,7 @@ import { ChatResponse } from "./types";
 import { SolanaAgentKit, createSolanaTools } from "solana-agent-kit";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
 
+
 export class SolanaAgentService {
   private llm?: ChatOpenAI;
   private threadId: string;
@@ -19,7 +20,7 @@ export class SolanaAgentService {
   ): Promise<ChatResponse> {
     if (token) {
       this.llm = new ChatOpenAI({
-        modelName: "gpt-4",
+        modelName: "gpt-40-mini",
         temperature: 0.7,
         apiKey: token,
       });

@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { SolanaAgentService } from "@/lib/solana-agent";
 
-export const runtime = 'edge';
 
 export async function POST(req: Request) {
   try {

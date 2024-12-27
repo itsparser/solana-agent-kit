@@ -1,7 +1,6 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { ChatResponse } from "./types";
 import { SolanaAgentKit, createSolanaTools } from "solana-agent-kit";
-import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
 
 export class SolanaAgentService {

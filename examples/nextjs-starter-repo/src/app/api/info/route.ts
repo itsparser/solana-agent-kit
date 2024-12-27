@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 
+
 /// Gives the information if registered env information
 export async function GET() {
   return NextResponse.json({
